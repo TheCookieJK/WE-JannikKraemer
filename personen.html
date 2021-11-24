@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Aufgabenplaner: Reiter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.1.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/30eca4fb9f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <header class="jumbotron p-5 rounded my-3">
+            <h1>Aufgabenplaner</h1>
+            <h2 class="fw-bold">Mitglieder</h2>
+        </header>
+        <!-- Page Content -->
+        <div class="row g-3">
+
+            <!-- Sidebar Menu -->
+            <div class="col-lg-3 col-xxl-2">
+                <ul class="list-group p-2 sidenav">
+                    <li class="list-group-item"><a href="login.html"><i class="icon fas fa-user"></i><span class="text">Login</span></a></li>
+                    <li class="list-group-item"><a href="projekte.html"><i class="icon fas fa-layer-group"></i><span class="text">Projekte</span></a></li>
+                    <li class="list-group-item"><a href="todo.html"><i class="icon fas fa-clipboard"></i><span class="text">Aktuelles Projekt</span></a></li>
+                    <li class="list-group-item"><a href="reiter.html" class="d-block ms-4"><i class=" icon fas fa-columns"></i><span class="text">Reiter</span> </a></li>
+                    <li class="list-group-item"><a href="aufgaben.html" class="d-block ms-4"><i class="icon fas fa-tasks"></i><span class="text">Aufgaben</span></a></li>
+                    <li class="list-group-item selected"><a href="personen.html" class="d-block ms-4"><i class="icon fas fa-users"></i><span class="text">Mitglieder</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Hauptcontainer -->
+            <div class="col-lg-9 col-xxl-10 mb-5 ">
+                <div class="col-xxl-10">
+                    <!-- Tabelle für Auflistung der Personen -->
+                    <div class="table-responsive">
+                        <table class="table  table-borderless ">
+                            <thead>
+                                <tr class="">
+                                    <th scope="col">Name</th>
+                                    <th scope="col">E-Mail</th>
+                                    <th scope="col">In Projekt</th>
+
+                                    <th ><!-- Placeholder für Aktionen --></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Max Mustermann</td>
+                                    <td >mustermann@muster.de</td>
+                                    <td><div class="in-project-indicator"><div class="indicator-ball rounded-circle "></div><div>Projekt nicht zugeordnet</div></div></td>
+                                    <td class="text-right" ><button class="btn btn-link"><i class="far fa-edit"></i></button><button class="btn btn-link"><i class="far fa-trash-alt"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Petra Müller</td>
+                                    <td>petra@mueller.de</td>
+                                    <td class="align-middle"><div class="in-project-indicator in-project-active"><div class="indicator-ball rounded-circle "></div><div>Zugeordnet</div></div></td>
+                                    <td class="text-right" ><button class="btn btn-link"><i class="far fa-edit"></i></button><button class="btn btn-link"><i class="far fa-trash-alt"></i></button></td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <!-- Bearbeitung/Erstellungs Form -->
+                    <div class="mt-4">
+                        <form>
+                            <h3>Bearbeiten/Erstellen:</h3>
+                            <div class="form-group">
+                                <label for="usernameInput">Username:</label>
+                                <input type="text" class="form-control" id="usernameInput" placeholder="Username" name="username">
+                            </div>
+                            <div class="form-group">
+                                <label for="emailInput">E-Mail-Adresse:</label>
+                                <input type="email" class="form-control" id="emailInput" placeholder="E-Mail-Adresse eingeben" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordInput">Username:</label>
+                                <input type="password" class="form-control" id="passwordInput" placeholder="Passwort" name="password">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="projectSelector">Projekt zuordnen:</label>
+                                <select class="form-control" id="projectSelector" name="assignedProject">
+                                    <option selected disabled hidden >- bitte auswählen -</option>
+                                    <option  value="0">Keinem Projekt zuordnen</option>
+                                    <option  value="1">Projekt 1</option>
+                                    <option  value="2">Projekt 2</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mt-2">Speichern</button>
+                            <button type="submit" class="btn btn-info mt-2">Reset</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

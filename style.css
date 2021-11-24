@@ -1,0 +1,132 @@
+.in-project-indicator .indicator-ball{
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #bfbfbf;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+.in-project-indicator.in-project-active .indicator-ball{
+    background-color: #2ecc71;
+}
+.in-project-indicator.in-project-active{
+    background-color: #ebfff3;
+    color: #2ecc71;
+}
+.in-project-indicator{
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    background-color: #f4f4f4;
+    display: inline-flex;
+    align-items: center;
+    color: #bfbfbf;
+}
+.table-responsive{
+    border-radius: 0.3rem;
+    border: 1px solid #f4f4f4;
+}
+body{
+    background-color: #ffffff;
+}
+
+
+.table > tbody > tr{
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.table > tbody > tr:nth-last-child(1){
+    border-bottom: none;
+}
+
+.jumbotron{
+    background-color: #f4f4f4;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+.table{
+    margin-bottom: 0;
+}
+
+
+.table > thead{
+    background-color: #f4f4f4 ;
+}
+
+.list-group-item{
+    border: none;
+    background-color: #f4f4f4 ;
+    transition: background-color 100ms ease-in-out;
+
+}
+
+.card .list-group-item{
+    border: 1px solid  #f4f4f4;
+    background-color: #ffffff;
+
+}
+
+.card{
+    border: 1px solid  #f4f4f4;
+    border-collapse: collapse;
+}
+
+.card-header{
+    border: none;
+    background-color: #f4f4f4;
+}
+
+.list-group-item .line{
+    height: 1px;
+    background-color: #cfcfcf;
+    width: 2rem;
+    vertical-align: middle;
+    margin-right: 2rem;
+    display: inline-block;
+}
+
+
+.list-group{
+    background-color: #f4f4f4 ;
+
+}
+
+.sidenav .list-group-item{
+    padding: 0.3rem;
+}
+.sidenav a{
+
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    color: #555555;
+}
+.sidenav a .icon{
+
+    margin-right: 1rem;
+}
+.sidenav .list-group-item.selected a{
+    color: #538bc2;
+    background-color: #e3ecf5;
+}
+.sidenav a:hover{
+    background-color: #efefef;
+    text-decoration: none;
+}
+
+.btn{
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+tr:hover{
+    background-color: #fafafa;
+    transition: background-color 120ms ease-in-out;
+}

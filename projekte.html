@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Aufgabenplaner: Projekte</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.1.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/30eca4fb9f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <header class="jumbotron p-5 rounded my-3">
+            <h1>Aufgabenplaner</h1>
+            <h2 class="fw-bold">Projekte</h2>
+        </header>
+        <!-- Page Content -->
+        <div class="row g-3">
+
+            <!-- Sidebar Menu -->
+            <div class="col-lg-3 col-xxl-2">
+                <ul class="list-group p-2 sidenav">
+                    <li class="list-group-item"><a href="login.html"><i class="icon fas fa-user"></i><span class="text">Login</span></a></li>
+                    <li class="list-group-item selected"><a href="projekte.html"><i class="icon fas fa-layer-group"></i><span class="text">Projekte</span></a></li>
+                    <li class="list-group-item"><a href="todo.html"><i class="icon fas fa-clipboard"></i><span class="text">Aktuelles Projekt</span></a></li>
+                    <li class="list-group-item"><a href="reiter.html" class="d-block ms-4"><i class=" icon fas fa-columns"></i><span class="text">Reiter</span> </a></li>
+                    <li class="list-group-item"><a href="aufgaben.html" class="d-block ms-4"><i class="icon fas fa-tasks"></i><span class="text">Aufgaben</span></a></li>
+                    <li class="list-group-item"><a href="personen.html" class="d-block ms-4"><i class="icon fas fa-users"></i><span class="text">Mitglieder</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Hauptcontainer -->
+            <div class="col-lg-9 col-xxl-10 mb-5 ">
+                <form class="col-xxl-10">
+
+                    <!-- Projektauswahl -->
+                    <div>
+                        <div class="form-group">
+                            <label for="projectSelector" class="h3">Projekt auswählen:</label>
+                            <select class="form-control" id="projectSelector">
+                                <option selected disabled hidden >- bitte auswählen -</option>
+                                <option  value="1">Projekt Placeholder 1</option>
+                                <option  value="2">Projekt Placeholder 2</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Auswählen</button>
+                        <button type="submit" class="btn btn-primary mt-2">Bearbeiten</button>
+                        <button type="submit" class="btn btn-danger mt-2">Löschen</button>
+                    </div>
+
+                    <!-- Bearbeitung/Erstellung -->
+                    <div class="mt-4">
+                        <h3>Projekt bearbeiten/erstellen:</h3>
+                        <div class="form-group">
+                          <label for="projectInput">Projektname:</label>
+                          <input type="text" class="form-control" id="projectInput" placeholder="Projekt">
+                        </div>
+                        <div class="form-group">
+                          <label for="descriptionTextarea">Projektbeschreibung:</label>
+                          <textarea class="form-control" id="descriptionTextarea" rows="3" placeholder="Beschreibung"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Speichern</button>
+                        <button type="submit" class="btn btn-info mt-2">Reset</button>
+                    </div>
+              </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
