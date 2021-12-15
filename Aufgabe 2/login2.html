@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Aufgabenplaner: Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.1.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <header class="jumbotron p-5 rounded my-3">
+            <div class="container">
+                <h1>Aufgabenplaner</h1>
+                <h2 class="fw-bold">Login</h2>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="container">
+
+            <!-- Login Form -->
+            <form class="col">
+                <div class="form-group">
+                    <label for="emailInput">Email-Adresse:</label>
+                    <input type="email" class="form-control" id="emailInput" placeholder="Email-Adresse eingeben" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="passwordInput">Passwort:</label>
+                    <input type="password" class="form-control" id="passwordInput" placeholder="Passwort" name="password">
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="agbCheckbox" name="agb">
+                    <label class="form-check-label" for="agbCheckbox">AGBs und Datenschutzbedingung akzeptieren</label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-4">Einloggen</button>
+                <div class="mt-3">
+                    Noch nicht registriert? <a href="">Registrierung</a>
+                </div>
+                <div class="mt-4">
+                    Da der Login Vorgang technisch noch nicht realisiert wurde: <a href="todo.html">Überspringen</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
