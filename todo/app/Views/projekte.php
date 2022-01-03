@@ -1,26 +1,15 @@
-<?
-    require_once 'components/header.php';
-    require_once 'components/sidebar.php';
-?>
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <title>Aufgabenplaner: Projekte</title>
-    <? require_once 'components/head.php'; ?>
-</head>
-<body>
-    <div class="container-fluid">
-        <!-- Header -->
-        <?
-            render_header("Projekte");
-        ?>
-        <!-- Page Content -->
-        <div class="row g-3">
+<div class="container-fluid">
+    <!-- Header -->
+    <?= $header
 
-            <!-- Sidebar Menu -->
-            <?
-                render_sidebar("projekte.php");
-            ?>
+    ?>
+    <!-- Page Content -->
+    <div class="row g-3">
+
+        <!-- Sidebar Menu -->
+        <?= $sidebar
+
+        ?>
 
             <!-- Hauptcontainer -->
             <div class="col-lg-9 col-xxl-10 mb-5 ">
@@ -59,5 +48,3 @@
             </div>
         </div>
     </div>
-</body>
-</html>

@@ -1,25 +1,14 @@
-<?
-    require_once 'components/header.php';
-    require_once 'components/sidebar.php';
-?>
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <title>Aufgabenplaner: Mitglieder</title>
-    <? require_once 'components/head.php'; ?>
-</head>
-<body>
-    <div class="container-fluid">
+<div class="container-fluid">
         <!-- Header -->
-        <?
-            render_header("Mitglieder");
+        <?= $header
+
         ?>
         <!-- Page Content -->
         <div class="row g-3">
 
             <!-- Sidebar Menu -->
-            <?
-                render_sidebar("personen.php");
+            <?= $sidebar
+
             ?>
 
             <!-- Hauptcontainer -->
@@ -41,26 +30,7 @@
 
                             <?php
 
-                                $mitglieder = [
-                                    [
-                                        "id"=>1,
-                                        "name"=>"Max Mustermann",
-                                        "email"=>"mustermann@muster.de",
-                                        "projektID"=>null
-                                    ],
-                                    [
-                                        "id"=>2,
-                                        "name"=>"Petra Müller",
-                                        "email"=>"petra@mueller.de",
-                                        "projektID"=>1
-                                    ],
-                                    [
-                                        "id"=>3,
-                                        "name"=>"Steve Jobs",
-                                        "email"=>"steve@apple.com",
-                                        "projektID"=>0
-                                    ],
-                                ];
+
                                 $projektID = 1;
 
                                 foreach($mitglieder as $mitglied){
@@ -131,5 +101,3 @@
             </div>
         </div>
     </div>
-</body>
-</html>

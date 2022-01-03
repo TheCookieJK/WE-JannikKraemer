@@ -1,26 +1,14 @@
-<?
-    require_once  'components/header.php';
-    require_once 'components/sidebar.php';
-?>
-
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <title>Aufgabenplaner: Reiter</title>
-    <? require_once 'components/head.php'; ?>
-</head>
-<body>
-    <div class="container-fluid">
+<div class="container-fluid">
         <!-- Header -->
-        <?
-            render_header("Reiter");
+        <?=
+           $header
         ?>
         <!-- Page Content -->
         <div class="row g-3">
 
             <!-- Sidebar Menu -->
-            <?
-                render_sidebar("reiter.php");
+            <?=
+                $sidebar
             ?>
 
             <!-- Hauptcontainer -->
@@ -38,24 +26,6 @@
                             </thead>
                             <tbody>
                             <?
-
-                                $reiterListe = [
-                                    [
-                                        "id"=>1,
-                                        "name"=>"ToDo",
-                                        "beschreibung"=>"Dinge die erledigt werden müssen."
-                                    ],
-                                    [
-                                        "id"=>2,
-                                        "name"=>"Erledigt",
-                                        "beschreibung"=>"Dinge die erledigt sind."
-                                    ],
-                                    [
-                                        "id"=>3,
-                                        "name"=>"Verschoben",
-                                        "beschreibung"=>"Die die später erledigt werden."
-                                    ],
-                                ];
 
                                 foreach($reiterListe as $reiter){
                                     ?>
@@ -95,5 +65,3 @@
             </div>
         </div>
     </div>
-</body>
-</html>

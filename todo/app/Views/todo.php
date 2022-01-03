@@ -1,27 +1,11 @@
-<?
-    require_once  'components/header.php';
-    require_once 'components/sidebar.php';
-?>
-
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <title>Aufgabenplaner: ToDos</title>
-    <? require_once 'components/head.php'; ?>
-</head>
-<body>
-    <div class="container-fluid">
+<div class="container-fluid">
         <!-- Header -->
-        <?
-            render_header("Todos (Aktuelles Projekt)");
-        ?>
+        <?= $header ?>
         <!-- Page Content -->
         <div class="row g-3">
 
-            <?
-                // Sidebar
-                render_sidebar("todo.php");
-
+            <?=
+                $sidebar
             ?>
 
             <!-- Hauptcontainer -->
@@ -81,5 +65,3 @@
             </div>
         </div>
     </div>
-</body>
-</html>

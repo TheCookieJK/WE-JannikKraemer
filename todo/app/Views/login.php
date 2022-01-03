@@ -1,17 +1,6 @@
-<?
-    require_once 'components/header.php';
-?>
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <title>Aufgabenplaner: Login</title>
-    <? require_once 'components/head.php'; ?>
-</head>
-<body>
-    <div class="container-fluid">
+<div class="container-fluid">
         <!-- Header -->
-        <?
-            render_header("Login");
+        <?= $header
         ?>
 
         <!-- Page Content -->
@@ -36,10 +25,8 @@
                     Noch nicht registriert? <a href="">Registrierung</a>
                 </div>
                 <div class="mt-4">
-                    Da der Login Vorgang technisch noch nicht realisiert wurde: <a href="todo.php">Überspringen</a>
+                    Da der Login Vorgang technisch noch nicht realisiert wurde: <a href="todos">Überspringen</a>
                 </div>
             </form>
         </div>
     </div>
-</body>
-</html>
