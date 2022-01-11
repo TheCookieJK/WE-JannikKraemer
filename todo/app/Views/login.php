@@ -3,14 +3,19 @@
         <?= $header
         ?>
 
+
         <!-- Page Content -->
         <div class="container">
-
+            <?php if(session()->getFlashdata('fehler')){?>
+                <div class="alert alert-warning">
+                    <?= session()->getFlashdata('fehler') ?>
+                </div>
+            <?php } ?>
             <!-- Login Form -->
-            <form class="col">
+            <?= form_open(base_url().'/login/auth',['method'=>'post'])?>
                 <div class="form-group">
                     <label for="emailInput">Email-Adresse:</label>
-                    <input type="email" class="form-control" id="emailInput" placeholder="Email-Adresse eingeben" name="email">
+                    <input type="email" class="form-control" id="emailInput" placeholder="Email-Adresse eingeben" name="email" value="<?= set_value('email') ?>">
                 </div>
                 <div class="form-group">
                     <label for="passwordInput">Passwort:</label>
