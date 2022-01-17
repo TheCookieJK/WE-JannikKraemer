@@ -3,12 +3,14 @@
 namespace App\Controllers;
 
 use App\Models\MitgliederModel;
-use Kint\Kint;
 
 class Login extends BaseController
 {
     public function index()
     {
+        if(session()->loggedin){
+            return redirect()->to('/todos');
+        }
         helper('form');
         echo view("templates/head", ["title"=>"Login"]);
         $data["header"] = view("templates/header", ["subtitle"=>"Login"]);
@@ -18,6 +20,8 @@ class Login extends BaseController
 
     public function auth(){
         helper('form');
+
+        $validation = service('validation');
         if($this->request->getMethod() != 'post'){
             die("Supported request type: post");
         }
@@ -26,12 +30,10 @@ class Login extends BaseController
 
 
 
-        $rules = [
-            'email' => 'required|valid_email',
-            'password' => 'required'
-        ];
 
-        if($this->validate($rules)){
+
+
+        if($validation->run($this->request->getPost(), 'signin')){
 
             $email = $this->request->getVar('email');
             $passwort = $this->request->getVar('password');
@@ -51,10 +53,10 @@ class Login extends BaseController
                             'id'=>$data['id'],
                             'username'=>$data['username'],
                             'loggedin'=>true,
-                            'projekt'=>1
+                            'projekt'=>0
                         ]
                     );
-                    return redirect()->to('/todos');
+                    return redirect()->to('/projekte');
                 }else{
                     $session->setFlashdata('fehler', 'Falsches Passwort');
                     return redirect()->back();
@@ -64,7 +66,7 @@ class Login extends BaseController
                 return redirect()->back();
             }
         }else{
-            $session->setFlashdata('fehler',implode("<br/> ",$this->validator->getErrors()));
+            $session->setFlashdata('fehler',$validation->getErrors());
             return redirect()->back();
         }
 

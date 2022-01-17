@@ -27,6 +27,7 @@ class Mitglieder extends Controller
 
         $data["mitglieder"] = $mitgliederModel->getAllWithProject($projektid);
         $data["projekte"] = $projekteModel->findAll();
+        $data["deleteOverlay"] = view("templates/delete_overlay", ["page"=>"mitglieder","name"=>"Mitglied"]);
 
         if($id !== null){
             $data['ausgewaehlt'] = $mitgliederModel->find($id);
@@ -40,6 +41,7 @@ class Mitglieder extends Controller
     }
 
     public function delete($id){
+        if(!is_numeric($id)){die("Bad request");}
         $mitgliederModel = new MitgliederModel();
         $mitgliederModel->where('id', $id)->delete();
         return redirect()->back();

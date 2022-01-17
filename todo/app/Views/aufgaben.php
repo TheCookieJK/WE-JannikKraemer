@@ -1,3 +1,4 @@
+<? delete_overlay('aufgaben', 'Aufgabe') ?>
 <div class="container-fluid">
     <!-- Header -->
     <?= $header
@@ -29,56 +30,24 @@
                             <tbody>
 
                             <?
-                            $aufgaben = [
-                                [
-                                    "id"=>1,
-                                    "bezeichnung"=>"HTML Datei erstellen",
-                                    "beschreibung"=>"HTML Datei erstellen",
-                                    "reiter"=>"ToDo",
-                                    "person"=>"Max Mustermann"
-                                ],
-                                [
-                                    "id"=>2,
-                                    "bezeichnung"=>"CSS Datei erstellen",
-                                    "beschreibung"=>"CSS Datei erstellen",
-                                    "reiter"=>"ToDo",
-                                    "person"=>"Max Mustermann"
-                                ],
-                                [
-                                    "id"=>3,
-                                    "bezeichnung"=>"PC eingeschaltet",
-                                    "beschreibung"=>"PC einschalten",
-                                    "reiter"=>"Erledigt",
-                                    "person"=>"Max Mustermann"
-                                ],
-                                [
-                                    "id"=>4,
-                                    "bezeichnung"=>"Kaffee trinken",
-                                    "beschreibung"=>"Kaffee trinken",
-                                    "reiter"=>"Erledigt",
-                                    "person"=>"Petra Müller"
-                                ],
-                                [
-                                    "id"=>5,
-                                    "bezeichnung"=>"Für die Uni lernen",
-                                    "beschreibung"=>"Für die Uni lernen",
-                                    "reiter"=>"Verschoben",
-                                    "person"=>"Max Mustermann"
-                                ],
-                            ];
-
-                            foreach($aufgaben as $aufgabe){
+                            if($aufgaben == []){
                                 ?>
-
-                                <tr>
-                                    <td><?= isset($aufgabe["bezeichnung"]) ? $aufgabe["bezeichnung"] : "-" ?></td>
-                                    <td><?= isset($aufgabe["beschreibung"]) ? $aufgabe["beschreibung"] : "-" ?></td>
-                                    <td><?= isset($aufgabe["reiter"]) ? $aufgabe["reiter"] : "-" ?></td>
-                                    <td><?= isset($aufgabe["person"]) ? $aufgabe["person"] : "-" ?></td>
-                                    <td class="text-end"><button class="btn btn-link"><i class="far fa-edit"></i></button><button class="btn btn-link"><i class="far fa-trash-alt"></i></button></td>
-                                </tr>
-
+                                <tr><td colspan="5" class="text-center text-secondary">Keine Aufgaben</td></tr>
                                 <?
+                            }else{
+                                foreach($aufgaben as $aufgabe){
+                                    ?>
+
+                                    <tr>
+                                        <td><?= isset($aufgabe["name"]) ? $aufgabe["name"] : "-" ?></td>
+                                        <td><?= isset($aufgabe["beschreibung"]) ? $aufgabe["beschreibung"] : "-" ?></td>
+                                        <td><?= isset($aufgabe["reiter"]) ? $aufgabe["reiter"] : "-" ?></td>
+                                        <td><?= isset($aufgabe["person"]) ? $aufgabe["person"] : "-" ?></td>
+                                        <td class="text-end"><a class="btn btn-link" href="<?= base_url()?>/aufgaben/edit/<?= $aufgabe['id'] ?>"><i class="far fa-edit"></i></a><button class="btn btn-link" onclick="openDialog(<?=$aufgabe['id']?>)"><i class="far fa-trash-alt"></i></button></td>
+                                    </tr>
+
+                                    <?
+                                }
                             }
                             ?>
 
@@ -87,52 +56,72 @@
                         </table>
                     </div>
                     <!-- Bearbeitung/Erstellungs Form -->
+                    <?php
+                    date_default_timezone_set('Europe/Luxembourg');
+                    ?>
                     <div class="mt-5">
-                        <form>
-                            <h3>Bearbeiten/Erstellen:</h3>
+                        <? display_submit('aufgaben') ?>
+                        <?= form_open(base_url().'/aufgaben/store',['method'=>'post',"enctype"=>"multipart/form-data"]) ?>
+                            <h3><?= isset($ausgewaehlt['id']) ? 'Bearbeiten' : 'Erstellen'?>:</h3>
+                            <?= isset($ausgewaehlt['id']) ? form_hidden('id',$ausgewaehlt['id']) : '' ?>
                             <div class="form-group">
                                 <label for="taskInput">Aufgabenbezeichnung:</label>
-                                <input type="text" class="form-control" id="taskInput" placeholder="Aufgabe" name="taskName">
+                                <input type="text" class="form-control" id="taskInput" placeholder="Aufgabe" name="name"
+                                value="<?= $ausgewaehlt['name'] ?? '' ?>">
                             </div>
                             <div class="form-group">
                                 <label for="taskDescriptionTextarea">Beschreibung der Aufgabe:</label>
-                                <textarea class="form-control" id="taskDescriptionTextarea" rows="3" placeholder="Beschreibung" name="taskDescription"></textarea>
+                                <textarea class="form-control" id="taskDescriptionTextarea" rows="3" placeholder="Beschreibung" name="beschreibung"><?= $ausgewaehlt['beschreibung'] ?? '' ?></textarea>
                             </div>
 
-                            <div class="form-group">
-                                <label for="creationDate">Beschreibung der Aufgabe:</label>
-                                <input type="date" class="form-control" id="creationDate" name="createdAt">
-                            </div>
 
                             <div class="form-group">
                                 <label for="dueDate">fällig bis:</label>
-                                <input type="date" class="form-control" id="dueDate" name="dueAt">
+                                <input type="datetime-local" class="form-control" id="dueDate" name="dueAt"
+                                value="<?= $ausgewaehlt['faelligkeitsdatum'] ??  date("Y-m-d H:i:s") ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="reiterSelector" >Zugehöriger Reiter:</label>
                                 <select class="form-control" id="reiterSelector" name="reiter">
                                     <option selected disabled hidden >- bitte auswählen -</option>
-                                    <option  value="1">ToDo</option>
-                                    <option  value="2">Erledigt</option>
-                                    <option  value="3">Verschoben</option>
+                                    <? foreach($reiter as $reiterElement){
+                                        ?>
+                                        <option value="<?= $reiterElement['id']?>" <?= isset($ausgewaehlt['reiterid']) && $ausgewaehlt['reiterid'] == $reiterElement['id'] ? 'selected' : '' ?>>
+                                            <?= $reiterElement['name']?>
+                                        </option>
+                                    <?
+                                    }
+                                    ?>
                                 </select>
                             </div>
-
                             <div class="form-group">
                                 <label for="responsibleSelector" >Zuständiger:</label>
-                                <select class="form-control" id="responsibleSelector" name="responsiblePerson">
-                                    <option selected disabled hidden >- bitte auswählen -</option>
-                                    <option  value="1">Max Mustermann</option>
-                                    <option  value="2">Petra Müller</option>
+                                <select class="form-control" id="responsibleSelector" multiple="multiple" name="responsiblePerson[]">
+
+                                    <?
+                                    $zugeordnet = [];
+                                    if(isset($ausgewaehlt['person'])){
+                                        $zugeordnet = explode(", ", $ausgewaehlt['person']);
+                                    }
+
+                                    ?>
+                                    <? foreach($mitglieder as $mitglied){?>
+                                        <option  value="<?= $mitglied['id'] ?>" <?= in_array($mitglied['username'],$zugeordnet) ? 'selected' : '' ?>><?= $mitglied['username'] ?></option>
+                                    <?}?>
+
                                 </select>
                             </div>
 
                             <button type="submit" class="btn btn-primary mt-2">Speichern</button>
-                            <button type="submit" class="btn btn-info mt-2">Reset</button>
+                            <a href="<?= base_url()?>/aufgaben" class="btn btn-info mt-2">Reset</a>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+<script>
+    //document.getElementById('dueDate').defaultValue = "<?=  date("Y-m-d H:i:s") ?>"
+</script>

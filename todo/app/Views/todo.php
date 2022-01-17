@@ -10,55 +10,30 @@
 
             <!-- Hauptcontainer -->
             <div class="col-lg-9 col-xxl-10 container-fluid ">
-                <div class="row g-3">
+                <div class="row g-3 h-100">
                     <?
-                        // To Do Array
-                        $todos = [
-                            [
-                                "id"=>1,
-                                "reiter"=>"ToDo",
-                                "aufgaben"=>[
-                                    "HTML Datei erstellen (Max Mustermann)",
-                                    "CSS Datei erstellen"
-                                ]
-                            ],
-                            [
-                                "id"=>2,
-                                "reiter"=>"Erledigt",
-                                "aufgaben"=>[
-                                    "PC eingeschaltet (Petra Müller)",
-                                    "Kaffee trinken (Petra Müller)"
-                                ]
-                            ],
-                            [
-                                "id"=>3,
-                                "reiter"=>"Verschoben",
-                                "aufgaben"=>[
-                                    "Für die Uni lernen (Max Mustermann)"
-                                ]
-                            ],
-                        ];
-
-                        foreach($todos as $todo){
-
+                        if($todos == []){
                             ?>
-                            <div class="col-12 col-md-6 col-xl">
-                                <div class="card">
-                                    <div class="card-header"><?= isset($todo["reiter"]) ? $todo["reiter"] : "Aufgaben" ?>:</div>
-                                    <ul class="list-group">
-                                        <?
-                                        if(isset($todo["aufgaben"])){
-                                            foreach($todo["aufgaben"] as $aufgabe){
-                                                ?>
-                                                    <li class="list-group-item"><?= $aufgabe ?></li>
-                                                <?
-                                            }
-                                        }
-                                        ?>
-                                    </ul>
-                                </div>
+                            <div class="col-12 text-center h3 h-100 d-flex flex-column justify-content-center align-items-center text-secondary font-weight-bold">
+                                <div class="mb-4">Noch keine Aufgaben eingetragen.</div>
+                                <a href="<?= base_url() ?>/aufgaben" class="btn btn-primary">Aufgaben verwalten</a>
                             </div>
                             <?
+                        }else{
+                            // To Do Array
+                            foreach($todos as $todo){
+
+                                ?>
+                                <div class="col-12 col-md-6 col-xl">
+                                    <div class="card">
+                                        <div class="card-header"><?= isset($todo["name"]) ? $todo["name"] : "Aufgaben" ?>:</div>
+                                        <ul class="list-group">
+                                            <?= $todo['aufgaben'] ?? '' ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <?
+                            }
                         }
                     ?>
                 </div>

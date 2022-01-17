@@ -1,9 +1,9 @@
 <div class="col-lg-3 col-xxl-2">
     <ul class="list-group p-2 sidenav">
         <li class="list-group-item">
-            <a href="<?= base_url() ?>" class="d-block">
+            <a href="<?= base_url() ?>/logout" class="d-block">
                 <i class="icon fas fa-user"></i>
-                <span class="text">Aktuelles Projekt</span>
+                <span class="text">Abmelden</span>
             </a>
         </li>
         <li class="list-group-item <?= $page == "projekte" ? 'selected' : ''; ?>">
@@ -12,6 +12,7 @@
                 <span class="text">Projekte</span>
             </a>
         </li>
+        <? if(isset(session()->projekt) && session()->projekt != 0){?>
         <li class="list-group-item <?= $page == "todo" ? 'selected' : ''; ?>">
             <a href="<?= base_url() . '/todos' ?>" class="d-block">
                 <i class="icon fas fa-clipboard"></i>
@@ -36,5 +37,6 @@
                 <span class="text">Mitglieder</span>
             </a>
         </li>
+        <?}?>
     </ul>
 </div>
