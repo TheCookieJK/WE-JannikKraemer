@@ -6,14 +6,14 @@
                 <span class="text">Abmelden</span>
             </a>
         </li>
-        <li class="list-group-item <?= $page == "projekte" ? 'selected' : ''; ?>">
+        <li class="list-group-item <?= $page == 'projekte' ? 'selected' : ''; ?>">
             <a href="<?= base_url() . '/projekte' ?>" class="d-block">
                 <i class="icon fas fa-layer-group"></i>
                 <span class="text">Projekte</span>
             </a>
         </li>
         <? if(isset(session()->projekt) && session()->projekt != 0){?>
-        <li class="list-group-item <?= $page == "todo" ? 'selected' : ''; ?>">
+        <li class="list-group-item <?= $page == 'todo' ? 'selected' : ''; ?>">
             <a href="<?= base_url() . '/todos' ?>" class="d-block">
                 <i class="icon fas fa-clipboard"></i>
                 <span class="text">Aktuelles Projekt</span>

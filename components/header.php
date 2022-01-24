@@ -1,5 +1,5 @@
 <?php
-function render_header($subtitle = ""){
+function render_header($subtitle = ''){
     ?>
     <header class="jumbotron p-5 rounded my-3">
         <h1>Aufgabenplaner</h1>

@@ -26,7 +26,7 @@
                                 ?>
                                 <div class="col-12 col-md-6 col-xl">
                                     <div class="card">
-                                        <div class="card-header"><?= isset($todo["name"]) ? $todo["name"] : "Aufgaben" ?>:</div>
+                                        <div class="card-header"><?= isset($todo['name']) ? $todo['name'] : 'Aufgaben' ?>:</div>
                                         <ul class="list-group">
                                             <?= $todo['aufgaben'] ?? '' ?>
                                         </ul>

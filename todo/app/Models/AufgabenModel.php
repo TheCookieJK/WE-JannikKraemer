@@ -19,6 +19,11 @@ class AufgabenModel extends Model{
 
     protected $useTimestamps = false;
 
+    /**
+     * Alle Aufgaben für ein Projekt (projekteid)
+     * @param $projectid
+     * @return array
+     */
     public function getAllForProject($projectid){
         $reiter = $this->db->table('reiter');
         $reiter->select("aufgaben.*, reiter.name as reiter, group_concat(mitglieder.username SEPARATOR ', ') as person");
@@ -30,6 +35,12 @@ class AufgabenModel extends Model{
         return $reiter->get()->getResultArray();
     }
 
+
+    /**
+     * Aufgabe bei ID
+     * @param $id
+     * @return array|object|null
+     */
     public function getById($id){
 
         $this->select("aufgaben.*, reiter.name as reiter, group_concat(mitglieder.username SEPARATOR ',') as person");

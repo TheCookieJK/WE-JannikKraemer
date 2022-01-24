@@ -66,9 +66,17 @@ class Validation
         'beschreibung' => 'required|string',
         'id'    => 'if_exist|integer'
     ];
+    public $storeproject_errors = [
+        'name'=>[
+            'required' => 'Bitte geben Sie einen Namen an.',
+        ],
+        'beschreibung'=>[
+            'required' => 'Bitte geben Sie eine Beschreibung ein.'
+        ]
+    ];
 
     public $selectproject = [
-        "project" => "required|integer"
+        'project' => 'required|integer'
     ];
 
     public $storeaufgabe = [
@@ -76,7 +84,25 @@ class Validation
         'beschreibung' => 'required',
         'dueAt' => 'required',
         'reiter'=> 'required',
-        'responsiblePerson'=>'required|multi_select',
+        'responsiblePerson'=>'multi_select',
+    ];
+
+    public $storeaufgabe_errors = [
+        'name'=>[
+            'required' => 'Bitte geben Sie einen Namen ein.',
+        ],
+        'beschreibung'=>[
+            'required' => 'Bitte geben Sie eine Beschreibung ein.'
+        ],
+        'dueAt'=>[
+            'required' => 'Bitte geben Sie ein Datum ein.'
+        ],
+        'reiter'=>[
+            'required' => 'Bitte wählen Sie ein Reiter aus.'
+        ],
+        'responsiblePerson'=>[
+            'multi_select' => 'Ungültige Werte.'
+        ]
     ];
 
     public $storereiter = [
@@ -84,11 +110,23 @@ class Validation
         'beschreibung' => 'required|string',
         'id'    => 'if_exist|integer'
     ];
+
+    public $storereiter_errors = [
+        'name'=>[
+            'required' => 'Bitte geben Sie einen Namen an.',
+        ],
+        'beschreibung'=>[
+            'required' => 'Bitte geben Sie eine Beschreibung ein.'
+        ]
+    ];
 }
 
 class MultiSelectRule{
     public function multi_select($arr): bool{
-        $data = $_POST["responsiblePerson"];
+        if(!isset($_POST['responsiblePerson'])){
+            return true;
+        }
+        $data = $_POST['responsiblePerson'];
        if(!is_array($data)){ return false; }
 
         if(empty($data)){

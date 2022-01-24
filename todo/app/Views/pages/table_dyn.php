@@ -44,12 +44,12 @@
         foreach($personen as $person){
             ?>
                 <tr>
-                    <td><?= $person["id"]; ?></td>
-                    <td><?= $person["vorname"]; ?></td>
-                    <td><?= $person["name"]; ?></td>
-                    <td><?= $person["strasse"]; ?></td>
-                    <td><?= $person["plz"]; ?></td>
-                    <td><?= $person["ort"]; ?></td>
+                    <td><?= $person['id']; ?></td>
+                    <td><?= $person['vorname']; ?></td>
+                    <td><?= $person['name']; ?></td>
+                    <td><?= $person['strasse']; ?></td>
+                    <td><?= $person['plz']; ?></td>
+                    <td><?= $person['ort']; ?></td>
                 </tr>
 
             <?

@@ -1,5 +1,5 @@
 <?php
-    $reiter = ["ToDo", "Erledigt", "Verschoben"];
+    $reiter = ['ToDo', 'Erledigt', 'Verschoben'];
 
     function getAllReiter(){
         global $reiter;

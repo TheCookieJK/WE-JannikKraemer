@@ -14,6 +14,12 @@ class ProjekteMitgliederModel extends Model{
 
     protected $useTimestamps = false;
 
+    /**
+     * speichert/löscht/updated einen Eintrag
+     * @param $projekteid
+     * @param $mitgliederid
+     * @throws \ReflectionException
+     */
     public function upsert($projekteid, $mitgliederid){
         if($projekteid == 0){
             $this->where('mitgliederid',$mitgliederid)->delete();

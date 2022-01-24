@@ -1,4 +1,4 @@
-<?= $deleteOverlay ?>
+<?= delete_overlay('mitglieder','Mitglied') ?>
 <div class="container-fluid">
         <!-- Header -->
         <?= $header ?>
@@ -54,15 +54,15 @@
 
                                     ?>
                                     <tr>
-                                        <td><?= isset($mitglied["username"]) ? $mitglied["username"] : '-' ?></td>
-                                        <td><?= isset($mitglied["email"]) ? $mitglied["email"] : '-' ?></td>
+                                        <td><?= isset($mitglied['username']) ? $mitglied['username'] : '-' ?></td>
+                                        <td><?= isset($mitglied['email']) ? $mitglied['email'] : '-' ?></td>
                                         <td>
                                             <div class="in-project-indicator <?= $projectState == 1 ? 'in-project-active' : '' ?>">
                                                 <div class="indicator-ball rounded-circle "></div>
                                                 <div><?= $projectState == 1 ? 'Zugeordnet' : ($projectState == 0 ?  'Projekt nicht zugeordnet' : 'Keinem Projekt zugeordnet') ?></div>
                                             </div>
                                         </td>
-                                        <td class="text-end"><a class="btn btn-link" href="<?= base_url() ?>/mitglieder/edit/<?= $mitglied["id"] ?>"><i class="far fa-edit"></i></a><button onclick="openDialog(<?= $mitglied['id'] ?>)" class="btn btn-link"><i class="far fa-trash-alt"></i></button></td>
+                                        <td class="text-end"><a class="btn btn-link" href="<?= base_url() ?>/mitglieder/edit/<?= $mitglied['id'] ?>"><i class="far fa-edit"></i></a><button onclick="openDialog(<?= $mitglied['id'] ?>)" class="btn btn-link"><i class="far fa-trash-alt"></i></button></td>
                                     </tr>
                                     <?
                                 }
@@ -84,7 +84,7 @@
                                 <?= session()->getFlashdata('mitglieder-fehler') ?>
                             </div>
                         <?php } ?>
-                        <?= form_open(base_url() . '/mitglieder/store',["method"=>"post"]) ?>
+                        <?= form_open(base_url() . '/mitglieder/store',['method' => 'post']) ?>
                             <h3>
                                 <? if(isset($ausgewaehlt) && $ausgewaehlt['id']){ ?>
                                 Bearbeiten:
