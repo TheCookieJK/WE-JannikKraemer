@@ -152,7 +152,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    //document.getElementById('dueDate').defaultValue = "<?=  date('Y-m-d H:i:s') ?>"
-</script>
