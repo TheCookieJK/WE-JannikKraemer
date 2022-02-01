@@ -17,7 +17,8 @@ class Projekte extends FormController
     {
         helper(['form', 'submit_feedback', 'delete_overlay']);
         $data['header'] = view('templates/header', ['subtitle' => 'Projekte']);
-        $data['sidebar'] = view('templates/sidebar', ['page' => 'projekte']);
+        //$data['sidebar'] = view('templates/sidebar', ['page' => 'projekte']);
+        $data['navbar'] = view('templates/navbar');
 
         $projektModel = new ProjektModel();
 
@@ -42,7 +43,6 @@ class Projekte extends FormController
                 $projektModel = new ProjektModel();
                 $data = $projektModel->find($id);
                 if($data){
-                    d($data);
                     session()->set(['projekt' =>$data['id']]);
                     return redirect()->to(base_url(). '/todos');
                 }

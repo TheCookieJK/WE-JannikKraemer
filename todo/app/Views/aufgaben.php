@@ -1,16 +1,13 @@
 <? delete_overlay('aufgaben', 'Aufgabe') ?>
-<div class="container-fluid">
+<div class="container">
     <!-- Header -->
     <?= $header ?>
+    <?= $navbar ?>
     <!-- Page Content -->
     <div class="row g-3">
-
-        <!-- Sidebar Menu -->
-        <?= $sidebar ?>
-
         <!-- Hauptcontainer -->
-        <div class="col-lg-9 col-xxl-10 mb-5 ">
-            <div class="col-xxl-10 ">
+        <div class="container mb-5">
+            <div class="">
                 <? display_submit('aufgaben-selector') ?>
                 <!-- Tabelle für Auflistung der Aufgaben -->
                 <div class="table-responsive">
@@ -45,7 +42,7 @@
                                     <td class="text-end"><a class="btn btn-link"
                                                             href="<?= base_url() ?>/aufgaben/edit/<?= $aufgabe['id'] ?>"><i
                                                     class="far fa-edit"></i></a>
-                                        <button class="btn btn-link" onclick="openDialog(<?= $aufgabe['id'] ?>)"><i
+                                        <button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?= $aufgabe['id'] ?>"><i
                                                     class="far fa-trash-alt"></i></button>
                                     </td>
                                 </tr>

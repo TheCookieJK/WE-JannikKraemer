@@ -34,7 +34,7 @@ class Mitglieder extends Controller
         }
 
         $data['header'] = view('templates/header', ['subtitle' => 'Mitglieder']);
-        $data['sidebar'] = view('templates/sidebar', ['page' => 'personen']);
+        $data['navbar'] = view('templates/navbar');
         echo view('templates/head', ['title' => 'Mitglieder']);
         echo view('personen', $data);
         echo view('templates/footer');

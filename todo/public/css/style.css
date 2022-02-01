@@ -110,6 +110,17 @@ body{
     color: #538bc2;
     background-color: #e3ecf5;
 }
+.bg-light{
+    background-color: #f4f4f4 !important;
+}
+.nav-link{
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    color: #555555 !important;
+}
+
+
 .sidenav a:hover{
     background-color: #efefef;
     text-decoration: none;
@@ -144,3 +155,24 @@ tr:hover{
 .overlay.show{
     display: flex;
 }
+
+.dropdown-menu{
+    padding: 1rem;
+}
+.hover-item{
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    color: #555555 !important;
+}
+
+.hover-item.selected{
+    color: #538bc2 !important;
+    background-color: #e3ecf5;
+}
+
+.hover-item:hover{
+    background-color: #efefef;
+    text-decoration: none;
+}
+

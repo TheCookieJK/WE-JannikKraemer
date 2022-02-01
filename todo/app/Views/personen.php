@@ -1,22 +1,13 @@
 <?= delete_overlay('mitglieder','Mitglied') ?>
-<div class="container-fluid">
-        <!-- Header -->
-        <?= $header ?>
-
-
-        <!-- Page Content -->
-        <div class="row g-3">
-
-            <!-- Sidebar Menu -->
-            <?= $sidebar
-
-            ?>
-
-
-
-            <!-- Hauptcontainer -->
-            <div class="col-lg-9 col-xxl-10 mb-5 ">
-                <div class="col-xxl-10">
+<div class="container">
+    <!-- Header -->
+    <?= $header ?>
+    <?= $navbar ?>
+    <!-- Page Content -->
+    <div class="row g-3">
+        <!-- Hauptcontainer -->
+        <div class="container mb-5">
+            <div class="">
                     <!-- Tabelle für Auflistung der Personen -->
                     <div class="table-responsive">
                         <table class="table  table-borderless ">
@@ -62,7 +53,7 @@
                                                 <div><?= $projectState == 1 ? 'Zugeordnet' : ($projectState == 0 ?  'Projekt nicht zugeordnet' : 'Keinem Projekt zugeordnet') ?></div>
                                             </div>
                                         </td>
-                                        <td class="text-end"><a class="btn btn-link" href="<?= base_url() ?>/mitglieder/edit/<?= $mitglied['id'] ?>"><i class="far fa-edit"></i></a><button onclick="openDialog(<?= $mitglied['id'] ?>)" class="btn btn-link"><i class="far fa-trash-alt"></i></button></td>
+                                        <td class="text-end"><a class="btn btn-link" href="<?= base_url() ?>/mitglieder/edit/<?= $mitglied['id'] ?>"><i class="far fa-edit"></i></a><button data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?= $mitglied['id'] ?>" class="btn btn-link"><i class="far fa-trash-alt"></i></button></td>
                                     </tr>
                                     <?
                                 }

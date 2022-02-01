@@ -1,15 +1,12 @@
-<div class="container-fluid">
-        <!-- Header -->
-        <?= $header ?>
-        <!-- Page Content -->
-        <div class="row g-3">
-
-            <?=
-                $sidebar
-            ?>
-
-            <!-- Hauptcontainer -->
-            <div class="col-lg-9 col-xxl-10 container-fluid ">
+<div class="container">
+    <!-- Header -->
+    <?= $header ?>
+    <?= $navbar ?>
+    <!-- Page Content -->
+    <div class="row g-3">
+        <!-- Hauptcontainer -->
+        <div class="container mb-5">
+            <div class="">
                 <div class="row g-3 h-100">
                     <?
                         if($todos == []){

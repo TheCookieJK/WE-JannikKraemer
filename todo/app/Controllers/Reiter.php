@@ -22,7 +22,7 @@ class Reiter extends FormController
             $data['ausgewaehlt'] = $reiterModel->find($id);
         }
         $data['header'] = view('templates/header', ['subtitle' => 'Reiter']);
-        $data['sidebar'] = view('templates/sidebar', ['page' => 'reiter']);
+        $data['navbar'] = view('templates/navbar');
         echo view('templates/head', ['title' => 'Reiter']);
         echo view('reiter', $data);
         echo view('templates/footer');

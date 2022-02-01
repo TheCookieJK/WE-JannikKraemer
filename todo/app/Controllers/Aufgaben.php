@@ -20,7 +20,7 @@ class Aufgaben extends FormController
     {
         helper(['form', 'submit_feedback', 'delete_overlay']);
         $data['header'] = view('templates/header', ['subtitle' => 'Aufgaben']);
-        $data['sidebar'] = view('templates/sidebar', ['page' => 'aufgaben']);
+        $data['navbar'] = view('templates/navbar');
         $aufgabenModel = new AufgabenModel();
         if($id !== null){
             $data['ausgewaehlt'] = $aufgabenModel->getById($id);

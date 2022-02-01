@@ -1,20 +1,13 @@
-<?= delete_overlay('reiter', 'Reiter') ?>
-<div class="container-fluid">
+
+<div class="container">
     <!-- Header -->
-    <?=
-    $header
-    ?>
+    <?= $header ?>
+    <?= $navbar ?>
     <!-- Page Content -->
     <div class="row g-3">
-
-        <!-- Sidebar Menu -->
-        <?=
-        $sidebar
-        ?>
-
         <!-- Hauptcontainer -->
-        <div class="col-lg-9 col-xxl-10 mb-5 ">
-            <div class="col-xxl-10">
+        <div class="container mb-5">
+            <div class="">
                 <? display_submit('reiter-selector') ?>
                 <!-- Tabelle für Auflistung der Personen -->
                 <div class="table-responsive">
@@ -42,7 +35,7 @@
                                     <td><?= isset($reiter['beschreibung']) ? $reiter['beschreibung'] : '-' ?></td>
                                     <td class="text-end"><a href="<?= base_url() ?>/reiter/edit/<?= $reiter['id'] ?>"
                                                             class="btn btn-link"><i class="far fa-edit"></i></a>
-                                        <button class="btn btn-link" onclick="openDialog(<?= $reiter['id'] ?>)"><i
+                                        <button class="btn btn-link btn-delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?= $reiter['id'] ?>"><i
                                                     class="far fa-trash-alt"></i></button>
                                     </td>
                                 </tr>
@@ -90,3 +83,4 @@
         </div>
     </div>
 </div>
+<?= delete_overlay('reiter', 'Reiter') ?>

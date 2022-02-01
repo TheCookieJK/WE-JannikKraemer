@@ -14,7 +14,7 @@ class Todos extends BaseController
         $projekt = $projektModel->where('id', session()->projekt)->first();
         $projektTitle = $projekt['name'] ?? '-';
         $data['header'] = view('templates/header', ['subtitle' =>$projektTitle]);
-        $data['sidebar'] = view('templates/sidebar', ['page' => 'todo']);
+        $data['navbar'] = view('templates/navbar');
 
         $reiterModel = new ReiterModel();
         $data['todos'] = $reiterModel->getAllWithAufgaben(session()->projekt);

@@ -1,18 +1,13 @@
 <? delete_overlay('projekte', 'Projekt') ?>
-<div class="container-fluid">
+<div class="container">
     <!-- Header -->
     <?= $header ?>
+    <?= $navbar ?>
     <!-- Page Content -->
     <div class="row g-3">
-
-        <!-- Sidebar Menu -->
-        <?= $sidebar
-
-        ?>
-
         <!-- Hauptcontainer -->
-        <div class="col-lg-9 col-xxl-10 mb-5 ">
-            <div class="col-xxl-10">
+        <div class="container mb-5">
+            <div class="">
 
                 <!-- Projektauswahl -->
                 <div>
@@ -28,12 +23,17 @@
                             <? } ?>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-2" name="select">Auswählen</button>
+                    <button type="submit" class="btn btn-primary mt-2" name="select" id="selectBtn" >Auswählen</button>
                     <button type="submit" class="btn btn-primary mt-2" name="edit">Bearbeiten</button>
-                    <button type="button" onclick="openDialog(document.getElementById('projectSelector').value)"
-                            class="btn btn-danger mt-2" name="delete">Löschen
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                            class="btn btn-danger mt-2" name="delete" onclick="setToDelete()">Löschen
                     </button>
                     </form>
+                    <script>
+                        function setToDelete() {
+                            window.toDelete = document.getElementById("projectSelector").value;
+                        }
+                    </script>
                 </div>
 
                 <!-- Bearbeitung/Erstellung -->
